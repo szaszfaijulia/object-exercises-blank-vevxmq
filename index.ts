@@ -3,21 +3,16 @@ import { people } from "./people";
 //Write a function that return the number of people that have starships
 //use the Array.prototype.filter method
 function cntHasStarShip() {
-  let count = 0;
-  /*for (let i=0; i<people.length;){
-    if (people.filter(p => p.starships !== null)){
-      ++count;
-    }
-  }*/
-  //return people.filter(p => p.starships !== null).length;
-  return count;
+  return people.filter(p => p.starships.length != 0).length;
 }
 
 console.log("Has starships:");
 console.log(cntHasStarShip());
 
 //Add a vehiclesCount property to each object, the value of the property is number of items of the array of vehicles property
-function addVehiclesCount() {}
+function addVehiclesCount() {
+  people.forEach(person => person["vehiclesCount"] = person.vehicles.length);
+}
 
 addVehiclesCount();
 console.log("Vehicles Cnt:");
